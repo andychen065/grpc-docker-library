@@ -28,7 +28,8 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Dockerfile for GRPC Python
-FROM grpc/python_base
+# NOTE: Redirect to my personal docker hub as grpc docker hub did not have this image
+FROM kiawin/python-base
 
 # Pull the latest sources
 RUN cd /var/local/git/grpc \

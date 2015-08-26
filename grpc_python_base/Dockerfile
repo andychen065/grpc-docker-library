@@ -30,7 +30,8 @@
 # Base Dockerfile for GRPC Python.
 #
 # Includes Python environment and installation dependencies.
-FROM grpc/base
+# NOTE: Redirect to my personal docker hub as grpc docker hub did not have this image
+FROM kiawin/grpc-base
 
 # Allows 'source' to work
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
