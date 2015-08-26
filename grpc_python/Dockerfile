@@ -54,6 +54,4 @@ RUN cd /var/local/git \
   && make check \
   && make install \
   && make clean
-RUN cd /var/local/git/grpc \
-  && pip install src/python/grpcio_health_checking
 
