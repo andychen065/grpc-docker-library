@@ -28,7 +28,8 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Dockerfile for the gRPC Java dev image
-FROM grpc/java_base
+# NOTE: Redirect to my personal docker hub as grpc docker hub did not have this image
+FROM kiawin/java_base
 
 RUN git clone --recursive --depth 1 https://github.com/grpc/grpc-java.git /var/local/git/grpc-java
 RUN cd /var/local/git/grpc-java/lib/netty && \

@@ -28,7 +28,8 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Base Dockerfile for the gRPC Java dev image
-FROM grpc/base
+# NOTE: Redirect to my personal docker hub as grpc docker hub did not have this image
+FROM kiawin/base
 
 # Install JDK 8
 #
