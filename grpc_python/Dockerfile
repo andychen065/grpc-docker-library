@@ -41,15 +41,18 @@ RUN make install_c -j12 -C /var/local/git/grpc
 
 # Build Python GRPC
 RUN cd /var/local/git/grpc \
-  && pip install src/python/src \
-  && pip install src/python/interop
+  && pip install -r src/python/grpcio/requirements.txt \
+  && CFLAGS="-I./include -std=c89" GRPC_PYTHON_BUILD_WITH_CYTHON=1 pip install src/python/grpcio \
+  && pip install -r src/python/grpcio_test/requirements.txt \
+  && pip install src/python/grpcio_test
+RUN cd /var/local/git \
+  && git clone https://github.com/google/protobuf \
+  && cd protobuf \
+  && ./autogen.sh \
+  && ./configure \
+  && make -j12 \
+  && make check \
+  && make install \
+  && make clean
+RUN pip install src/python/grpcio_health_checking
 
-# Run Python GRPC's tests
-RUN cd /var/local/git/grpc \
-  && make test_python
-
-# Add a cacerts directory containing the Google root pem file, allowing the interop client to access the production test instance
-ADD cacerts cacerts
-
-# Specify the default command such that the interop server runs on its known testing port
-CMD ["/bin/bash", "-l", "-c", "python2.7 -m interop.server --use_tls --port 8050"]
