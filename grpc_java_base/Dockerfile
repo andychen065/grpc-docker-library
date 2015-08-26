@@ -29,7 +29,7 @@
 
 # Base Dockerfile for the gRPC Java dev image
 # NOTE: Redirect to my personal docker hub as grpc docker hub did not have this image
-FROM kiawin/base
+FROM kiawin/grpc-base
 
 # Install JDK 8
 #

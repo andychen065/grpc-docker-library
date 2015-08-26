@@ -29,7 +29,7 @@
 
 # Dockerfile for the gRPC Java dev image
 # NOTE: Redirect to my personal docker hub as grpc docker hub did not have this image
-FROM kiawin/java_base
+FROM kiawin/grpc-java-base
 
 RUN git clone --recursive --depth 1 https://github.com/grpc/grpc-java.git /var/local/git/grpc-java
 RUN cd /var/local/git/grpc-java/lib/netty && \
