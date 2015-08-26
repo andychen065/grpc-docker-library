@@ -29,7 +29,7 @@
 
 # Dockerfile for GRPC Python
 # NOTE: Redirect to my personal docker hub as grpc docker hub did not have this image
-FROM kiawin/python-base
+FROM kiawin/grpc-python-base
 
 # Pull the latest sources
 RUN cd /var/local/git/grpc \
